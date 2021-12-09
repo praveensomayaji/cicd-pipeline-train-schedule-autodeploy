@@ -12,14 +12,15 @@ pipeline {
             }
         }
         
-        stage('Build image') {               
-            steps {
-                echo 'Starting to build docker image'
+        stage('Build Docker Image') {
+           steps {
                 script {
-                    def customImage = docker.build("praveensomayaji/trainSchedule:${env.BUILD_NUMBER")
-                    customImage.push()
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                    app.inside {
+                        sh 'echo Hello, World!'
+                    }
                 }
-            }     
+            }
         }
         
         stage('Push Docker Image') {
