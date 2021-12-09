@@ -11,16 +11,15 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
-        stage('Build Docker Image') {
+        
+        stage('Build image') {               
             steps {
-                script {
-                    app = docker.build("praveensomayaji/trainSchedule")
-                    app.inside {
-                        sh 'echo Hello, World!'
-                    }
+                script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                 }
-            }
+            }     
         }
+        
         stage('Push Docker Image') {
             steps {
                 script {
