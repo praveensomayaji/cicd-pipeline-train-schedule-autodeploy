@@ -35,7 +35,7 @@ pipeline {
         }
         stage('DeployToProduction') {           
             steps {
-                sh 'kubectl apply -f https://github.com/praveensomayaji/cicd-pipeline-train-schedule-autodeploy/blob/master/kubedeployment.yml'
+                sh 'kubectl apply -f kubedeployment.yml'
             }
         }
     }
