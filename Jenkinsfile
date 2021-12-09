@@ -35,7 +35,8 @@ pipeline {
         }
         stage('DeployToProduction') {           
             steps {
-                sh 'sudo kubectl apply -f kubedeployment.yml'
+                sh 'cd /var/lib/jenkins/workspace/ProblemStatement2'
+                sh 'kubectl apply -f kubedeployment.yml'
             }
         }
     }
