@@ -14,8 +14,10 @@ pipeline {
         
         stage('Build image') {               
             steps {
-                script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                echo 'Starting to build docker image'
+                script {
+                    def customImage = docker.build("praveensomayaji/trainSchedule:${env.BUILD_NUMBER")
+                    customImage.push()
                 }
             }     
         }
