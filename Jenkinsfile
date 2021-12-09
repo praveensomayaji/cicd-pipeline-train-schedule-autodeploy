@@ -35,7 +35,7 @@ pipeline {
         }
         stage('DeployToProduction') {           
             steps {
-                sh 'kubectl apply -f kubedeployment.yml'
+                sh 'sudo kubectl apply -f kubedeployment.yml'
             }
         }
     }
