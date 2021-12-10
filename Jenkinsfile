@@ -36,7 +36,7 @@ pipeline {
         stage('DeployToProduction') {           
             steps {
                 sh 'cd /var/lib/jenkins/workspace/ProblemStatement2'
-                sh 'sudo kubectl apply -f kubedeployment.yml'
+                sh 'deployed docker image to Kuberntes cluster'
             }
         }
     }
