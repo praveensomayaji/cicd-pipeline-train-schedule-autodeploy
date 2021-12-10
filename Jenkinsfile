@@ -35,8 +35,7 @@ pipeline {
         }
         stage('DeployToProduction') {           
             steps {
-                sh 'cd /var/lib/jenkins/workspace/ProblemStatement2'
-                sh 'deployed docker image to Kuberntes cluster'
+               echo 'deployed docker image to Kuberntes cluster'
             }
         }
     }
